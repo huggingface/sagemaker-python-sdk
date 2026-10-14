@@ -17,13 +17,13 @@ jobs:
         submodule: [sagemaker-core, sagemaker-train, sagemaker-serve, sagemaker-mlops]
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4.3.1
         with:
           role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
           aws-region: us-west-2
           role-duration-seconds: 10800
       - name: Run Unit Tests V3 for ${{ matrix.submodule }}
-        uses: aws-actions/aws-codebuild-run-build@v1
+        uses: aws-actions/aws-codebuild-run-build@7e46c3fa1c1f217e26a73712796b1f78938b534b  # v1.0.19
         with:
           project-name: sagemaker-python-sdk-ci-health-unit-test-v3
           source-version-override: refs/heads/master
@@ -39,13 +39,13 @@ jobs:
         submodule: [sagemaker-core, sagemaker-train, sagemaker-serve, sagemaker-mlops]
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4.3.1
         with:
           role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
           aws-region: us-west-2
           role-duration-seconds: 10800
       - name: Run Canaries V3 master for ${{ matrix.submodule }}
-        uses: aws-actions/aws-codebuild-run-build@v1
+        uses: aws-actions/aws-codebuild-run-build@7e46c3fa1c1f217e26a73712796b1f78938b534b  # v1.0.19
         with:
           project-name: sagemaker-python-sdk-ci-health-canaries-v3-master
           source-version-override: refs/heads/master
@@ -61,13 +61,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4.3.1
         with:
           role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
           aws-region: us-west-2
           role-duration-seconds: 10800
       - name: Run GPU Integ Tests (master)
-        uses: aws-actions/aws-codebuild-run-build@v1
+        uses: aws-actions/aws-codebuild-run-build@7e46c3fa1c1f217e26a73712796b1f78938b534b  # v1.0.19
         with:
           project-name: sagemaker-python-sdk-ci-health-gpu-integ-tests-master
           source-version: refs/heads/master
@@ -75,13 +75,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials (us-east-1)
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4.3.1
         with:
           role-to-assume: ${{ secrets.CI_AWS_ROLE_US_EAST_1_ARN }}
           aws-region: us-east-1
           role-duration-seconds: 10800
       - name: Run GPU Integ Tests (master, us-east-1)
-        uses: aws-actions/aws-codebuild-run-build@v1
+        uses: aws-actions/aws-codebuild-run-build@7e46c3fa1c1f217e26a73712796b1f78938b534b  # v1.0.19
         with:
           project-name: sagemaker-python-sdk-ci-health-gpu-integ-tests-master
           source-version: refs/heads/master
@@ -94,13 +94,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4.3.1
         with:
           role-to-assume: ${{ secrets.CI_AWS_ROLE_ARN }}
           aws-region: us-west-2
           role-duration-seconds: 10800
       - name: Run Bedrock Model-Import Integ Tests
-        uses: aws-actions/aws-codebuild-run-build@v1
+        uses: aws-actions/aws-codebuild-run-build@7e46c3fa1c1f217e26a73712796b1f78938b534b  # v1.0.19
         with:
           project-name: sagemaker-python-sdk-ci-health-import-model-integ-tests
           source-version: refs/heads/master
@@ -116,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4.3.1
         with:
           role-to-assume: ${{ secrets.MONITORING_ROLE_ARN }}
           aws-region: us-west-2
